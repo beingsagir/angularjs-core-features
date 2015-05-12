@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Angularjs Basic Sample Project</title>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+<body>
+
+
+<!-- Using First controller of the module ! -->
+
+<div ng-controller="myController">
+	<input type="text" name="ok" ng-model="inQQQTest">
+	<h2>{{ inQQQTest }}</h2>
+</div>
+
+
+
+<!-- Using first controller of the module ! -->
+
+<div ng-controller="myCtrl">
+
+First Name: <input type="text" ng-model="firstname"><br>
+Last Name: <input type="text" ng-model="lastname"><br>
+<br>
+Full Name: {{firstname + " " + lastname}}
+</div>
+
+
+<!-- Using another controller module -->
+
+<div ng-controller="useMe">
+First Name: <input type="text" ng-model="new"><br>
+	{{new}}
+</div>
+
+
+<script>
+	var app = angular.module('myApp', ['anotherModule']);
+
+app.controller('myController', function($scope){
+		$scope.firstname = "John";
+		$scope.lastname = "Doe";		
+	});
+
+
+	app.controller('myCtrl', function($scope){
+		$scope.firstname = "Lalala";
+		$scope.lastname = "huehuehue";		
+	});
+
+
+	var newMod = angular.module('anotherModule', []);
+
+	newMod.controller('useMe', ['$scope', function($scope){
+		$scope.new = "ok";
+	}]);
+
+</script>
+</body>
+
+</html>
