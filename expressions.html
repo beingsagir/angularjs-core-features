@@ -6,12 +6,13 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 
 </head>
-<body ng-app="" ng-init="quantity=1;cost=4">
+<body ng-app="" ng-init="person={firstName:'John',lastName:'Doe'}">
 <h2 ng-show="name">I was not visible untill you typed something, now you are typing : {{name}}</h2>
 
 </body>
 <div>
-	<h2>First Expressions : {{ quantity + cost + 3 }} </h2>
+	<h2>First Expressions : {{ person.firstName +" "+ person.lastName}} </h2>
+	<h3>Result : <span ng-bind="person.lastName"></span></h3>
 </div>
 
 </html>
